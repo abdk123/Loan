@@ -1,0 +1,32 @@
+<div [@routerTransition]>
+    <!--header-->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <p><i class="fa fa-cags"></i> {{ "Settings" | localize }} / {{ "Country" | localize }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!--body-->
+    <section class="content px-2">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3><i class="fa fa-flag"></i> {{ "Country" | localize }}</h3>
+                        </div>
+                        <div class="col-6 text-right">
+                            <button nz-button nzType="primary" [nzShape]="'circle'" [nzSize]="'large'"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <button nz-button [nzSize]="'large'" nzType="primary">Primary</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
