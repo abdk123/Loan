@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LMS.Loan.Indexes.Countries
 {
     public class CountryAppService : AbpServiceBase, ICountryAppService
-    {
+    { 
         private readonly IRepository<Country> _repository;
         public CountryAppService(IRepository<Country> repository)
         {
