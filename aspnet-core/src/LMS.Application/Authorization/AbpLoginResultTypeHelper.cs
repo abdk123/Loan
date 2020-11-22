@@ -7,7 +7,7 @@ using Abp.UI;
 namespace LMS.Authorization
 {
     public class AbpLoginResultTypeHelper : AbpServiceBase, ITransientDependency
-    {
+    { 
         public AbpLoginResultTypeHelper()
         {
             LocalizationSourceName = LMSConsts.LocalizationSourceName;
