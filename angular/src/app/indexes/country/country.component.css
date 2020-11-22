@@ -6,3 +6,7 @@
 nz-button-group [nz-button] {
     margin-right: 0;
 }
+
+.blue-icon{
+    color:#007bff;
+}

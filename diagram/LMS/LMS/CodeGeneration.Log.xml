@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 12.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="ProjectPath = ..\LMSLib\LMSLib.csproj" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2020-11-18T18:49:16" Importance="Medium" Text="LMS's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'LMS::Case' -  (Class), 'LMS::customer' -  (Class), 'LMS::Bank' -  (Class), 'LMS::BankCode' -  (Class), 'LMS::WaedStatus' -  (Class), 'LMS::Agent' -  (Class), 'LMS::Country' -  (Class), 'LMS::TempCase' -  (Class), 'LMS::Offer' -  (Class), 'LMS::PromiseToPay' -  (Class), 'LMS::Payment' -  (Class), 'LMS::ReceiptPayment' -  (Class), 'LMS::Currency' -  (Class), 'LMS::WorkflowSetting' -  (Class), 'LMS::Approval' -  (Class), 'LMS::WorkflowItem' -  (Class), 'LMS::WorkflowStep' -  (Class), 'LMS::Employee' -  (Class), 'LMS::LegalAction' -  (Class), 'LMS::Settlement' -  (Class), 'LMS::Lawsuit' -  (Class), 'LMS::Meeting' -  (Class) " />
+  <Message Timestamp="2020-11-18T18:49:25" Importance="Medium" Text="Project Added: F:\Projects\Loan\diagram\LMS\LMSLib\LMSLib.csproj" />
+  <Message Timestamp="2020-11-18T18:49:25" Importance="Medium" Text="'LMS::Case' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Case.cs" />
+  <Message Timestamp="2020-11-18T18:49:26" Importance="Medium" Text="'LMS::customer' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\customer.cs" />
+  <Message Timestamp="2020-11-18T18:49:26" Importance="Medium" Text="'LMS::Bank' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Bank.cs" />
+  <Message Timestamp="2020-11-18T18:49:26" Importance="Medium" Text="'LMS::BankCode' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\BankCode.cs" />
+  <Message Timestamp="2020-11-18T18:49:26" Importance="Medium" Text="'LMS::WaedStatus' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\WaedStatus.cs" />
+  <Message Timestamp="2020-11-18T18:49:27" Importance="Medium" Text="'LMS::Agent' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Agent.cs" />
+  <Message Timestamp="2020-11-18T18:49:27" Importance="Medium" Text="'LMS::Country' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Country.cs" />
+  <Message Timestamp="2020-11-18T18:49:27" Importance="Medium" Text="'LMS::TempCase' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\TempCase.cs" />
+  <Message Timestamp="2020-11-18T18:49:27" Importance="Medium" Text="'LMS::Offer' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Offer.cs" />
+  <Message Timestamp="2020-11-18T18:49:27" Importance="Medium" Text="'LMS::PromiseToPay' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\PromiseToPay.cs" />
+  <Message Timestamp="2020-11-18T18:49:28" Importance="Medium" Text="'LMS::Payment' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Payment.cs" />
+  <Message Timestamp="2020-11-18T18:49:28" Importance="Medium" Text="'LMS::ReceiptPayment' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\ReceiptPayment.cs" />
+  <Message Timestamp="2020-11-18T18:49:28" Importance="Medium" Text="'LMS::Currency' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Currency.cs" />
+  <Message Timestamp="2020-11-18T18:49:28" Importance="Medium" Text="'LMS::WorkflowSetting' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\WorkflowSetting.cs" />
+  <Message Timestamp="2020-11-18T18:49:28" Importance="Medium" Text="'LMS::Approval' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Approval.cs" />
+  <Message Timestamp="2020-11-18T18:49:29" Importance="Medium" Text="'LMS::WorkflowItem' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\WorkflowItem.cs" />
+  <Message Timestamp="2020-11-18T18:49:29" Importance="Medium" Text="'LMS::WorkflowStep' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\WorkflowStep.cs" />
+  <Message Timestamp="2020-11-18T18:49:29" Importance="Medium" Text="'LMS::Employee' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Employee.cs" />
+  <Message Timestamp="2020-11-18T18:49:29" Importance="Medium" Text="'LMS::LegalAction' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\LegalAction.cs" />
+  <Message Timestamp="2020-11-18T18:49:29" Importance="Medium" Text="'LMS::Settlement' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Settlement.cs" />
+  <Message Timestamp="2020-11-18T18:49:29" Importance="Medium" Text="'LMS::Lawsuit' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Lawsuit.cs" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Medium" Text="'LMS::Meeting' -  (Class) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Meeting.cs" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="Name = EnumTemplate" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="ProjectPath = ..\LMSLib\LMSLib.csproj" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4" />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Medium" Text="LMS's Text Template Binding: 'EnumTemplate' will apply EnumTemplate.t4 to: 'LMS::Approvaltype' -  (Enumeration), 'LMS::EmployeeType' -  (Enumeration) " />
+  <Message Timestamp="2020-11-18T18:49:30" Importance="Medium" Text="'LMS::Approvaltype' -  (Enumeration) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\Approvaltype.cs" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Medium" Text="'LMS::EmployeeType' -  (Enumeration) : success (file created) - F:\Projects\Loan\diagram\LMS\LMSLib\GeneratedCode\EmployeeType.cs" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="ProjectPath = ..\LMSLib\LMSLib.csproj" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Medium" Text="LMS's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'LMS::Case' -  (Class), 'LMS::customer' -  (Class), 'LMS::Bank' -  (Class), 'LMS::BankCode' -  (Class), 'LMS::WaedStatus' -  (Class), 'LMS::Agent' -  (Class), 'LMS::Country' -  (Class), 'LMS::TempCase' -  (Class), 'LMS::Offer' -  (Class), 'LMS::PromiseToPay' -  (Class), 'LMS::Payment' -  (Class), 'LMS::ReceiptPayment' -  (Class), 'LMS::Currency' -  (Class), 'LMS::WorkflowSetting' -  (Class), 'LMS::Approval' -  (Class), 'LMS::WorkflowItem' -  (Class), 'LMS::WorkflowStep' -  (Class), 'LMS::Employee' -  (Class), 'LMS::LegalAction' -  (Class), 'LMS::Settlement' -  (Class), 'LMS::Lawsuit' -  (Class), 'LMS::Meeting' -  (Class) " />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::Case' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::customer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::Bank' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::BankCode' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::WaedStatus' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::Agent' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::Country' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::TempCase' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:31" Importance="Diagnostic" Text="'LMS::Offer' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::PromiseToPay' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Payment' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::ReceiptPayment' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Currency' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::WorkflowSetting' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Approval' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::WorkflowItem' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::WorkflowStep' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Employee' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::LegalAction' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Settlement' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Lawsuit' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::Meeting' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="The selection included 26 elements which were not bound to a template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="Diagnostic" Text="'LMS::' -  (Association): no bound template." />
+  <Message Timestamp="2020-11-18T18:49:32" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>

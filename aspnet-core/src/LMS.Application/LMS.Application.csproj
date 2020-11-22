@@ -11,6 +11,9 @@
     <RootNamespace>LMS</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="18.3.0.50" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\LMS.Core\LMS.Core.csproj" />
   </ItemGroup>
 </Project>

@@ -23,6 +23,8 @@
     "@angular/router": "^9.1.4",
     "@aspnet/signalr": "^1.1.4",
     "@fortawesome/fontawesome-free": "^5.13.0",
+    "@syncfusion/ej2-angular-grids": "^18.3.50",
+    "@syncfusion/ej2-material-theme": "^18.3.50",
     "abp-ng2-module": "^6.2.0",
     "abp-web-resources": "^5.3.0",
     "admin-lte-css-only": "^3.0.4",

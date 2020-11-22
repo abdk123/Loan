@@ -42,10 +42,14 @@ import { CountryComponent } from './indexes/country/country.component';
 // ng-zorro
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
 
-//const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
+import { EditService, FilterService, GridModule, GroupService, PagerModule, PageService, SortService, ToolbarService } from '@syncfusion/ej2-angular-grids';
+import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
+
+// const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
 @NgModule({
   declarations: [
@@ -94,9 +98,22 @@ import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angu
     NgxPaginationModule,
     // ng-zorro
     NzButtonModule,
-    NzIconModule
+    NzIconModule,
+    NzBreadCrumbModule,
+
+    // Syncfusion
+    PagerModule,
+    GridModule
   ],
-  providers: [],
+  providers: [
+    PageService,
+    SortService,
+    FilterService,
+    GroupService,
+    ToolbarService,
+    EditService,
+    CountryServiceProxy
+  ],
   entryComponents: [
     // tenants
     CreateTenantDialogComponent,

@@ -1,7 +1,11 @@
 ﻿using Abp;
 using Abp.Domain.Repositories;
 using LMS.Loan.Indexes.Dto;
+using LMS.Loan.Indexes.Shared.Dto;
+using Microsoft.AspNetCore.Mvc;
+using Syncfusion.EJ2.Base;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LMS.Loan.Indexes.Countries
@@ -19,6 +23,12 @@ namespace LMS.Loan.Indexes.Countries
             return ObjectMapper.Map<List<IndexDto>>(countries);
         }
 
+        public async Task<IList<ReadIndexDto>> GetAllForGridAsync()
+        {
+            var countries = await _repository.GetAllListAsync();
+            return ObjectMapper.Map<List<ReadIndexDto>>(countries);
+        }
+
         public async Task<IndexDto> GetById(int id)
         {
             var country = await _repository.GetAsync(id);
@@ -27,16 +37,16 @@ namespace LMS.Loan.Indexes.Countries
 
         public async Task<IndexDto> CreateAsync(CreateIndexDto input)
         {
-            var country = ObjectMapper.Map<Country>(input);
+            var country = ObjectMapper.Map<Country>(input.Value);
 
-            var addedCountry = await _repository.InsertAsync(country);
+            await _repository.InsertAndGetIdAsync(country);
 
-            return ObjectMapper.Map<IndexDto>(addedCountry);
+            return ObjectMapper.Map<IndexDto>(country);
         }
         public async Task<IndexDto> UpdateAsync(UpdateIndexDto input)
         {
-            var country = await _repository.GetAsync(input.Id);
-            ObjectMapper.Map<UpdateIndexDto, Country>(input, country);
+            var country = await _repository.GetAsync(input.Value.Id);
+            ObjectMapper.Map<IndexDto, Country>(input.Value, country);
 
             var updatedCountry = await _repository.UpdateAsync(country);
 
@@ -47,5 +57,7 @@ namespace LMS.Loan.Indexes.Countries
             var country = await _repository.GetAsync(id);
             await _repository.DeleteAsync(country);
         }
+
+        
     }
 }

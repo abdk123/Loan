@@ -1,9 +1,8 @@
-﻿
-namespace LMS.Loan.Indexes.Dto
+﻿namespace LMS.Loan.Indexes.Dto
 {
     public class CreateIndexDto
     {
-        public string Name { get; set; }
-        public int Order { get; set; }
+        public IndexDto Value { get; set; }
+        public string Action { get; set; }
     }
 }
