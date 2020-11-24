@@ -3,6 +3,7 @@ using LMS.Authorization.Users;
 using LMS.Loan.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -10,10 +11,16 @@ namespace LMS.Loan.Employees
 {
     public class Employee:FullAuditedEntity
     {
-        public string Name { get; set; } 
+        [MaxLength(LMSConsts.MinStringLength)]
+        public string Name { get; set; }
+        [MaxLength(LMSConsts.MinStringLength)]
         public string HomePhone { get; set; }
+        [MaxLength(LMSConsts.MinStringLength)]
         public string MobilePhone { get; set; }
+        [MaxLength(LMSConsts.MaxStringLength)]
         public string Address { get; set; }
+
+        [MaxLength(LMSConsts.MinStringLength)]
         public string EmailAddress { get; set; }
         public EmployeeType EmployeeType { get; set; }
         public long UserId { get; set; }

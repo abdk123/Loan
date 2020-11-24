@@ -9,5 +9,7 @@
         public const bool MultiTenancyEnabled = true;
 
         public const int MaxIndexStringLength = 100;
+        public const int MinStringLength = 150;
+        public const int MaxStringLength = 255;
     }
 }
