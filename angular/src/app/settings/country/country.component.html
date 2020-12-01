@@ -21,7 +21,7 @@
                                     <i nz-icon nzType="setting"></i>
                                 </nz-breadcrumb-item>
                                 <nz-breadcrumb-item>
-                                    <a><i nz-icon nzType="flag"></i><span>{{ "Countries" | localize }}</span></a>
+                                    <a><i nz-icon nzType="flag"></i><span>{{l("Countries")}}</span></a>
                                 </nz-breadcrumb-item>
                                 
                             </nz-breadcrumb>
@@ -45,11 +45,13 @@
                     [editSettings]='editSettings' 
                     [toolbar]='toolbar'
                     [filterSettings]='filterOption'
+                    (actionBegin)='actionBegin($event)'
+                    
                     >
                         <e-columns>
-                            <!-- <e-column field="Id" headerText="Id" isPrimaryKey="true" textAlign="center"></e-column> -->
-                            <e-column field="name" headerText="{{ 'Name' | localize }}" textAlign="center"></e-column>
-                            <e-column field="order" headerText="{{ 'Order' | localize }}" editType= 'numericedit' textAlign="center"></e-column>
+                            <e-column field="id" headerText="Id" isPrimaryKey="true" textAlign="center"></e-column>
+                            <e-column field="name" headerText="{{l('Name')}}" textAlign="center"></e-column>
+                            <e-column field="order" headerText='{{ l("Order") }}' editType= 'numericedit' textAlign="center"></e-column>
                         </e-columns>
                     </ejs-grid>
                 </div>

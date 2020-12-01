@@ -122,5 +122,18 @@
     <text name="CreateCountry">Create country</text>
     <text name="EditCountry">Edit country</text>
     <text name="DeleteCountry">Delete country</text>
+
+    <text name="EmployeeName">Employee Name</text>
+    <text name="EmployeeType">Employee Type</text>
+    <text name="HomePhone">Home Phone</text>
+    <text name="MobilePhone">Mobile Phone</text>
+    <text name="Address">Address</text>
+    <text name="CreateNewEmployee">Create new employee</text>
+    <text name="EmployeeNameAleadyExist">Employee name aleady exist</text>
+    <text name="EmailAddressAleadyExist">Email address aleady exist</text>
+    <text name="DoYouWantToRemoveTheEmployee">Do you want to remove the employee?</text>
+    <text name="EditEmployee">Edit employee</text>
+    <text name="DeleteEmployee">Delete employee</text>
+  
   </texts>
 </localizationDictionary>

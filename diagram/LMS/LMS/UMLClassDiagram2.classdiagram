@@ -72,20 +72,6 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="b9b2cdae-83b5-43c9-8a29-d262f08af988">
-      <profileInstance Id="be9f8149-8e05-4262-932a-caebc04a8939" name="CSharpProfile">
-        <elementDefinition Id="977d18db-0e5e-4082-bb77-745f4d34dcc4" />
-      </profileInstance>
-      <elementDefinition Id="9db61f22-ddf2-414e-a383-7e087663433f" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="cb7e934a-55f0-48e6-aa62-4cfb78f4f261">
-      <profileInstance Id="525635a2-2f4d-49b5-8504-aa8434a7251e" name="TextTemplateBindings">
-        <elementDefinition Id="4d9482d5-ff2d-43aa-94f0-86a5083d7342" />
-      </profileInstance>
-      <elementDefinition Id="49c7e704-3c90-4496-b8a0-5a56b935ae4a" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="3baa3d54-92df-4ea1-b436-e328965cfda0" name="Case" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -1776,6 +1762,18 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="b9b2cdae-83b5-43c9-8a29-d262f08af988">
+        <profileInstance Id="be9f8149-8e05-4262-932a-caebc04a8939" name="CSharpProfile">
+          <elementDefinition Id="977d18db-0e5e-4082-bb77-745f4d34dcc4" />
+        </profileInstance>
+        <elementDefinition Id="9db61f22-ddf2-414e-a383-7e087663433f" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="cb7e934a-55f0-48e6-aa62-4cfb78f4f261">
+        <profileInstance Id="525635a2-2f4d-49b5-8504-aa8434a7251e" name="TextTemplateBindings">
+          <elementDefinition Id="4d9482d5-ff2d-43aa-94f0-86a5083d7342" />
+        </profileInstance>
+        <elementDefinition Id="49c7e704-3c90-4496-b8a0-5a56b935ae4a" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>

@@ -1,0 +1,117 @@
+<form class="form-horizontal" autocomplete="off" #createEmployeeForm="ngForm" (ngSubmit)="save()">
+    <abp-modal-header [title]="'CreateNewEmployee' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+    <div class="modal-body">
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="employeeName">
+                {{ "EmployeeName" | localize }}
+            </label>
+            <div nz-input class="col-md-9">
+                <input type="text" class="form-control" 
+                name="name" 
+                id="name" 
+                minlength="2" 
+                required 
+                [(ngModel)]="employee.name" 
+                #nameModel="ngModel" 
+                #nameEl />
+                <!-- <input nz-input class="form-control" placeholder="Basic usage" [(ngModel)]="employee.name" /> -->
+                <abp-validation-summary [control]="nameModel" [controlEl]="nameEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+        <!--Employee Type-->
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="employeeType">
+                {{ "EmployeeType" | localize }}
+            </label>
+            <div class="col-md-9">
+                <select type="text" class="form-control" 
+                name="employeeType" 
+                id="employeeType" 
+                required 
+                [(ngModel)]="employee.employeeType" 
+                #employeeTypeModel="ngModel" 
+                #employeeTypeEl >
+                <option ></option>
+                <option value="1">{{ "Coordinator" | localize }}</option>
+                <option value="2">{{ "Mis" | localize }}</option>
+                <option value="3">{{ "TeamLeader" | localize }}</option>
+                <option value="4">{{ "Negotiator" | localize }}</option>
+            </select>
+                <abp-validation-summary [control]="employeeTypeModel" [controlEl]="employeeTypeEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+        <!--Home Phone-->
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="homePhone">
+                {{ "HomePhone" | localize }}
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" 
+                name="homePhone" 
+                id="homePhone" 
+                [(ngModel)]="employee.homePhone" 
+                #homePhoneModel="ngModel" 
+                #homePhoneEl />
+                <abp-validation-summary [control]="homePhoneModel" [controlEl]="homePhoneEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+        <!--Mobile Phone-->
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="mobilePhone">
+                {{ "MobilePhone" | localize }}
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" 
+                name="mobilePhone" 
+                id="mobilePhone" 
+                required 
+                [(ngModel)]="employee.mobilePhone" 
+                #mobilePhoneModel="ngModel" 
+                #mobilePhoneEl />
+                <abp-validation-summary [control]="mobilePhoneModel" [controlEl]="mobilePhoneEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+        <!--Email Address-->
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="emailAddress">
+                {{ "EmailAddress" | localize }}
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" 
+                name="emailAddress" 
+                id="emailAddress" 
+                required 
+                maxlength="256"
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$"
+                [(ngModel)]="employee.emailAddress" 
+                #emailAddressModel="ngModel" 
+                #emailAddressEl />
+                <abp-validation-summary [control]="emailAddressModel" [controlEl]="emailAddressEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+        <!--Address-->
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="address">
+                {{ "Address" | localize }}
+            </label>
+            <div class="col-md-9">
+                <textarea type="text" class="form-control" 
+                name="address" 
+                id="address" 
+                required 
+                [(ngModel)]="employee.address" 
+                #addressModel="ngModel" 
+                #addressEl ></textarea>
+                <abp-validation-summary [control]="addressModel" [controlEl]="addressEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+    </div>
+    <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!createEmployeeForm.form.valid || saving"
+        (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>

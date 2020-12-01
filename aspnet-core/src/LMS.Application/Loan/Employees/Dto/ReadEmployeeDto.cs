@@ -1,10 +1,8 @@
-﻿using LMS.Loan.Employees.Dto;
-using System.Collections.Generic;
-
-namespace LMS.Loan.Employees.Dto
+﻿namespace LMS.Loan.Employees.Dto
 {
     public class ReadEmployeeDto
     {
+        public string id { get; set; }
         public string name { get; set; }
         public string homePhone { get; set; }
         public string mobilePhone { get; set; }

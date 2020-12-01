@@ -1,0 +1,71 @@
+<div [@routerTransition]>
+    <!--header-->
+    <section class="content-header">
+        <div class="container-fluid">
+            <!-- <div class="card">
+                <p><i class="fa fa-cags"></i> {{ "Settings" | localize }} / {{ "Employee" | localize }}</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!--body-->
+    <section class="content px-2">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <nz-breadcrumb>
+                                <nz-breadcrumb-item>
+                                    <i nz-icon nzType="setting"></i>
+                                </nz-breadcrumb-item>
+                                <nz-breadcrumb-item>
+                                    <a><i nz-icon nzType="flag"></i><span>{{l("Employees")}}</span></a>
+                                </nz-breadcrumb-item>
+                                
+                            </nz-breadcrumb>
+
+                        </div>
+                        <div class="col-6 text-right">
+                            <!-- <button nz-button nzType="primary" [nzShape]="'circle'" [nzSize]="'large'"><i
+                                    class="fa fa-plus"></i></button> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- <button nz-button [nzSize]="'large'" nzType="primary">Primary</button> -->
+                    <ejs-grid id="EmployeeGrid" #employeeGrid
+                    [dataSource]="employees" 
+                    [allowPaging]="true" 
+                    [allowSorting]="true"
+                    [allowFiltering]="true"
+                    [allowGrouping]="true"
+                    [allowReordering]="true"
+                    [pageSettings]="pageSettings"
+                    [toolbar]='toolbar'
+                    [filterSettings]='filterOption'
+                    (toolbarClick)="onClickToolbar($event)"
+                    >
+                        <e-columns>
+                            <e-column headerText="{{l('Commands')}}" textAlign='Center'>
+                                <ng-template #template let-data>
+                                    <div class="e-unboundcelldiv" style="display: inline-block">
+                                        <button type="button" title="{{l('Edit')}}" (click)="showEditDialog(data.id)" class="e-lib e-btn e-control e-flat e-icon-btn e-edit-delete e-editbutton"><span class="e-btn-icon e-edit e-icons"></span></button>
+                                        <button type="button" title="{{l('Delete')}}" (click)="delete(data)" class="e-lib e-btn e-control e-flat e-icon-btn e-edit-delete e-deletebutton"><span class="e-btn-icon e-delete e-icons"></span></button>
+                                    </div>
+                                </ng-template>
+                            </e-column>
+                            <e-column field="id" headerText="Id" isPrimaryKey="true" [visible]="false"></e-column>
+                            <e-column field="name" headerText="{{l('Name')}}" textAlign="center"></e-column>
+                            <e-column field="homePhone" headerText="{{l('HomePhone')}}" textAlign="center"></e-column>
+                            <e-column field="mobilePhone" headerText="{{l('MobilePhone')}}" textAlign="center"></e-column>
+                            <e-column field="employeeType" headerText="{{l('EmployeeType')}}" textAlign="center"></e-column>
+                            <e-column field="emailAddress" headerText="{{l('EmailAddress')}}" textAlign="center"></e-column>
+                            <e-column field="address" headerText="{{l('Address')}}" textAlign="center"></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

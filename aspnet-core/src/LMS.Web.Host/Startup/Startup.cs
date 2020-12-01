@@ -50,11 +50,6 @@ namespace LMS.Web.Host.Startup
                 };
             });
 
-            //services.AddMvc().AddJsonOptions(o =>
-            //{
-            //    o.JsonSerializerOptions.PropertyNamingPolicy = null;
-            //    o.JsonSerializerOptions.DictionaryKeyPolicy = null;
-            //});
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);

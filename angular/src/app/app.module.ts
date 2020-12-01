@@ -38,18 +38,24 @@ import { SidebarComponent } from './layout/sidebar.component';
 import { SidebarLogoComponent } from './layout/sidebar-logo.component';
 import { SidebarUserPanelComponent } from './layout/sidebar-user-panel.component';
 import { SidebarMenuComponent } from './layout/sidebar-menu.component';
-import { CountryComponent } from './indexes/country/country.component';
+
 // ng-zorro
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 import { EditService, FilterService, GridModule, GroupService, PagerModule, PageService, SortService, ToolbarService } from '@syncfusion/ej2-angular-grids';
-import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
+import { CountryComponent } from './settings/country/country.component';
+import { EmployeeComponent } from './settings/employees/employee.component';
+import { CreateEmployeeDialogComponent } from './settings/employees/create-employee/create-employee-dialog.component';
+import { CountryServiceProxy, EmployeeServiceProxy } from '@shared/service-proxies/service-proxies';
+import { EditEmployeeDialogComponent } from './settings/employees/edit-employee/edit-employee-dialog.component';
 
-// const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
+const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
 @NgModule({
   declarations: [
@@ -80,7 +86,11 @@ import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
     SidebarLogoComponent,
     SidebarUserPanelComponent,
     SidebarMenuComponent,
-    CountryComponent
+    CountryComponent,
+    // employees
+    EmployeeComponent,
+    CreateEmployeeDialogComponent,
+    EditEmployeeDialogComponent
   ],
   imports: [
     CommonModule,
@@ -96,23 +106,21 @@ import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
     ServiceProxyModule,
     SharedModule,
     NgxPaginationModule,
+    GridModule,
     // ng-zorro
-    NzButtonModule,
-    NzIconModule,
     NzBreadCrumbModule,
-
-    // Syncfusion
-    PagerModule,
-    GridModule
+    NzInputModule,
+    NzSelectModule
   ],
   providers: [
+    CountryServiceProxy,
+    EmployeeServiceProxy,
     PageService,
     SortService,
     FilterService,
     GroupService,
     ToolbarService,
-    EditService,
-    CountryServiceProxy
+    EditService
   ],
   entryComponents: [
     // tenants
@@ -125,6 +133,9 @@ import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
     CreateUserDialogComponent,
     EditUserDialogComponent,
     ResetPasswordDialogComponent,
+    // employees
+    CreateEmployeeDialogComponent,
+    EditEmployeeDialogComponent
   ],
 })
 export class AppModule {}
