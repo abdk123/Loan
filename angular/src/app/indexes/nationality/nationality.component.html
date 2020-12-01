@@ -1,0 +1,59 @@
+<div [@routerTransition]>
+    <!--header-->
+    <section class="content-header">
+        <div class="container-fluid">
+            <!-- <div class="card">
+                <p><i class="fa fa-cags"></i> {{ "Settings" | localize }} / {{ "Nationality" | localize }}</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!--body-->
+    <section class="content px-2">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-6">
+                            <!-- <h6><i class="fa fa-cog blue-icon"></i> {{ "Settings" | localize }} / {{ "Nationality" | localize }}</h6> -->
+                            <nz-breadcrumb>
+                                <nz-breadcrumb-item>
+                                    <i nz-icon nzType="setting"></i>
+                                </nz-breadcrumb-item>
+                                <nz-breadcrumb-item>
+                                    <a><i nz-icon nzType="flag"></i><span>{{ "Nationalities" | localize }}</span></a>
+                                </nz-breadcrumb-item>
+                                
+                            </nz-breadcrumb>
+
+                        </div>
+                        <div class="col-6 text-right">
+                            <!-- <button nz-button nzType="primary" [nzShape]="'circle'" [nzSize]="'large'"><i
+                                    class="fa fa-plus"></i></button> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- <button nz-button [nzSize]="'large'" nzType="primary">Primary</button> -->
+                    <ejs-grid 
+                    [dataSource]="nationalities" 
+                    [allowPaging]="true" 
+                    [allowSorting]="true"
+                    [allowFiltering]="true"
+                    [allowGrouping]="true"
+                    [pageSettings]="pageSettings"
+                    [editSettings]='editSettings' 
+                    [toolbar]='toolbar'
+                    [filterSettings]='filterOption'
+                    >
+                        <e-columns>
+                            <!-- <e-column field="Id" headerText="Id" isPrimaryKey="true" textAlign="center"></e-column> -->
+                            <e-column field="name" headerText="{{ 'Name' | localize }}" textAlign="center"></e-column>
+                            <e-column field="order" headerText="{{ 'Order' | localize }}" editType= 'numericedit' textAlign="center"></e-column>
+                        </e-columns>
+                    </ejs-grid>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

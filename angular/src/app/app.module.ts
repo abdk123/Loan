@@ -47,7 +47,8 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
 
 import { EditService, FilterService, GridModule, GroupService, PagerModule, PageService, SortService, ToolbarService } from '@syncfusion/ej2-angular-grids';
-import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
+import { CountryServiceProxy, NationalityServiceProxy } from '@shared/service-proxies/service-proxies';
+import { NationalityComponent } from './indexes/nationality/nationality.component';
 
 // const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
 
@@ -80,7 +81,8 @@ import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
     SidebarLogoComponent,
     SidebarUserPanelComponent,
     SidebarMenuComponent,
-    CountryComponent
+    CountryComponent,
+    NationalityComponent
   ],
   imports: [
     CommonModule,
@@ -112,7 +114,8 @@ import { CountryServiceProxy } from '@shared/service-proxies/service-proxies';
     GroupService,
     ToolbarService,
     EditService,
-    CountryServiceProxy
+    CountryServiceProxy,
+    NationalityServiceProxy
   ],
   entryComponents: [
     // tenants
