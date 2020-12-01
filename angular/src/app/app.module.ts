@@ -120,7 +120,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     FilterService,
     GroupService,
     ToolbarService,
-    EditService
+    EditService,
+    CountryServiceProxy,
+    NationalityServiceProxy
   ],
   entryComponents: [
     // tenants

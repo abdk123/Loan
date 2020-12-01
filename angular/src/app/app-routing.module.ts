@@ -21,6 +21,7 @@ import { EmployeeComponent } from './settings/employees/employee.component';
                 children: [
                     { path: 'home', component: HomeComponent,  canActivate: [AppRouteGuard] },
                     { path: 'country', component: CountryComponent,  canActivate: [AppRouteGuard] },
+                    { path: 'nationality', component: NationalityComponent,  canActivate: [AppRouteGuard] },
                     { path: 'employee', component: EmployeeComponent,  canActivate: [AppRouteGuard] },
                     { path: 'users', component: UsersComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
