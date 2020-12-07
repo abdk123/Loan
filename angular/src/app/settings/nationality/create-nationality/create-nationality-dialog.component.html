@@ -1,0 +1,42 @@
+<form class="form-horizontal" autocomplete="off" #createNationalityForm="ngForm" (ngSubmit)="save()">
+    <abp-modal-header [title]="'CreateNewNationality' | localize" (onCloseClick)="bsModalRef.hide()"></abp-modal-header>
+    <div class="modal-body">
+        <!--Name-->
+        <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="employeeName">
+                {{ "Name" | localize }}
+            </label>
+            <div nz-input class="col-md-9">
+                <input type="text" class="form-control" 
+                name="name" 
+                id="name" 
+                minlength="2" 
+                required 
+                [(ngModel)]="nationality.name" 
+                #nameModel="ngModel" 
+                #nameEl />
+                <abp-validation-summary [control]="nameModel" [controlEl]="nameEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+        
+        <!--Order-->
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label" for="order">
+                {{ "Order" | localize }}
+            </label>
+            <div class="col-md-9">
+                <input type="number" class="form-control" 
+                name="order" 
+                id="order" 
+                [(ngModel)]="nationality.order" 
+                #orderModel="ngModel" 
+                #orderEl />
+                <abp-validation-summary [control]="orderModel" [controlEl]="orderEl">
+                </abp-validation-summary>
+            </div>
+        </div>
+    </div>
+    <abp-modal-footer [cancelDisabled]="saving" [saveDisabled]="!createNationalityForm.form.valid || saving"
+        (onCancelClick)="bsModalRef.hide()"></abp-modal-footer>
+</form>

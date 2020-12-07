@@ -10,6 +10,7 @@ namespace LMS.Loan.Employees.Map
         {
             CreateMap<EmployeeType, string>().ConvertUsing(src => src.ToString());
             CreateMap<Employee, EmployeeDto>();
+            CreateMap<Employee, EmployeeForDropdownDto>();
             CreateMap<Employee, ReadEmployeeDto>();
             CreateMap<Employee, UpdateEmployeeDto>();
             CreateMap<EmployeeDto, Employee>();

@@ -45,6 +45,11 @@ namespace LMS.Loan.Employees
             var employees = await _repository.GetAllListAsync();
             return ObjectMapper.Map<List<EmployeeDto>>(employees);
         }
+        public async Task<IList<EmployeeForDropdownDto>> GetForDropdown()
+        {
+            var employees = await _repository.GetAllListAsync();
+            return ObjectMapper.Map<List<EmployeeForDropdownDto>>(employees);
+        }
         [HttpPost]
         public async Task<ReadGrudDto> GetForGrid([FromBody] DataManagerRequest dm)
         {
@@ -154,5 +159,6 @@ namespace LMS.Loan.Employees
             return user;
         }
 
+        
     }
 }

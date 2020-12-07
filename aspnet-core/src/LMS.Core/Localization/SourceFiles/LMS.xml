@@ -78,6 +78,8 @@
     <text name="PleaseWait">Please wait...</text>
     <text name="Administration">Administration</text>
     <text name="ClearAll">Clear all</text>
+    <text name="ClearFilters">Clear Filters</text>
+    <text name="ClearSorts">Clear Sorts</text>
     <text name="ClearOthers">Clear others</text>
     <text name="LabelOptions">Label options</text>
     <text name="Permissions">Permissions</text>
@@ -118,22 +120,41 @@
     <text name="ResetPasswordStepTwoInfo">2. Copy this random password so you can send it to the user</text>
 
     <text name="Country">Country</text>
+    <text name="Order">Order</text>
     <text name="Countries">Countries</text>
-    <text name="CreateCountry">Create country</text>
+    <text name="CreateNewCountry">Create new country</text>
     <text name="EditCountry">Edit country</text>
     <text name="DeleteCountry">Delete country</text>
+    <text name="DoYouWantToRemoveTheCountry">Do you want to remove the country?</text>
 
+    <text name="CaseStatus">Case Status</text>
+    <text name="CreateNewCaseStatus">Create new case status</text>
+    <text name="EditCaseStatus">Edit case status</text>
+    <text name="DeleteCaseStatus">Delete case status</text>
+    <text name="DoYouWantToRemoveTheCaseStatus">Do you want to remove the case status?</text>
+    
+    <text name="Nationality">Nationality</text>
+    <text name="Nationalities">Nationalities</text>
+    <text name="CreateNewCaseStatus">Create new nationality</text>
+    <text name="EditNationality">Edit nationality</text>
+    <text name="DeleteNationality">Delete nationality</text>
+    <text name="DoYouWantToRemoveTheCaseStatus">Do you want to remove the nationality?</text>
+
+    <text name="Employee">Employee</text>
     <text name="EmployeeName">Employee Name</text>
     <text name="EmployeeType">Employee Type</text>
     <text name="HomePhone">Home Phone</text>
     <text name="MobilePhone">Mobile Phone</text>
     <text name="Address">Address</text>
     <text name="CreateNewEmployee">Create new employee</text>
-    <text name="EmployeeNameAleadyExist">Employee name aleady exist</text>
-    <text name="EmailAddressAleadyExist">Email address aleady exist</text>
     <text name="DoYouWantToRemoveTheEmployee">Do you want to remove the employee?</text>
     <text name="EditEmployee">Edit employee</text>
     <text name="DeleteEmployee">Delete employee</text>
-  
+
+    <text name="ValidationMessages">Validation Messages</text>
+    <text name="EmployeeNameAleadyExist">Employee name aleady exist</text>
+    <text name="NameAleadyExist">The name aleady exist</text>
+    <text name="EmailAddressAleadyExist">Email address aleady exist</text>
+    
   </texts>
 </localizationDictionary>

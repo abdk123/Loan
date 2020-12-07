@@ -12,5 +12,6 @@
     {
         public const string EmployeeNameAleadyExist = "EmployeeNameAleadyExist";
         public const string EmailAddressAleadyExist = "EmailAddressAleadyExist";
+        public const string NameAleadyExist = "NameAleadyExist";
     }
 }

@@ -1,14 +1,11 @@
-﻿namespace LMS.Loan.Indexes.Dto
-{
-    public class CreateIndexDto
-    {
-        public IndexDto Value { get; set; }
-        public string Action { get; set; }
-    }
+﻿using Abp.Application.Services.Dto;
 
-    public class CreateCountryDto
+namespace LMS.Loan.Indexes.Dto
+{
+    public class CreateIndexDto:EntityDto
     {
         public string Name { get; set; }
         public int Order { get; set; }
     }
+
 }

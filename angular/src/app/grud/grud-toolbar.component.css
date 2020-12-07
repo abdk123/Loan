@@ -1,0 +1,11 @@
+.fa-ico-po{
+
+    display: inline-block;
+    position: relative;
+}
+.fa-ico-po > .fa-slash{
+    position: absolute;
+    top: 6px;
+    left: -4px;
+}
+

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientJsonpModule } from '@angular/common/http';
@@ -41,21 +41,36 @@ import { SidebarMenuComponent } from './layout/sidebar-menu.component';
 
 // ng-zorro
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzIconModule, NZ_ICONS } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import { AccountBookFill, AlertFill, AlertOutline } from '@ant-design/icons-angular/icons';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-
+import * as AllIcons from '@ant-design/icons-angular/icons';
 import { EditService, FilterService, GridModule, GroupService, PagerModule, PageService, SortService, ToolbarService } from '@syncfusion/ej2-angular-grids';
 import { CountryComponent } from './settings/country/country.component';
 import { EmployeeComponent } from './settings/employees/employee.component';
 import { CreateEmployeeDialogComponent } from './settings/employees/create-employee/create-employee-dialog.component';
-import { CountryServiceProxy, EmployeeServiceProxy } from '@shared/service-proxies/service-proxies';
+import { CaseStatusServiceProxy, CountryServiceProxy, EmployeeServiceProxy, NationalityServiceProxy } from '@shared/service-proxies/service-proxies';
 import { EditEmployeeDialogComponent } from './settings/employees/edit-employee/edit-employee-dialog.component';
+import { EditCountryDialogComponent } from './settings/country/edit-country/edit-country-dialog.component';
+import { CreateCountryDialogComponent } from './settings/country/create-country/create-country-dialog.component';
+import { NationalityComponent } from './settings/nationality/nationality.component';
+import { EditNationalityDialogComponent } from './settings/nationality/edit-nationality/edit-nationality-dialog.component';
+import { CreateNationalityDialogComponent } from './settings/nationality/create-nationality/create-nationality-dialog.component';
+import { CaseStatusComponent } from './settings/case-status/case-status.component';
+import { CreateCaseStatusDialogComponent } from './settings/case-status/create-case-status/create-case-status-dialog.component';
+import { EditCaseStatusDialogComponent } from './settings/case-status/edit-case-status/edit-case-status-dialog.component';
+import { ToolbarModule } from '@syncfusion/ej2-angular-navigations';
+import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { GrudToolbarComponent } from './grud/grud-toolbar.component';
+import { GrudColumnComponent } from './grud/grud-column/grud-column.component';
 
-const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
+const antDesignIcons = AllIcons as {
+  [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key]);
 
 @NgModule({
   declarations: [
@@ -86,11 +101,24 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     SidebarLogoComponent,
     SidebarUserPanelComponent,
     SidebarMenuComponent,
-    CountryComponent,
+    GrudToolbarComponent,
     // employees
     EmployeeComponent,
     CreateEmployeeDialogComponent,
-    EditEmployeeDialogComponent
+    EditEmployeeDialogComponent,
+    // Country
+    CountryComponent,
+    EditCountryDialogComponent,
+    CreateCountryDialogComponent,
+    // Nationality
+    NationalityComponent,
+    EditNationalityDialogComponent,
+    CreateNationalityDialogComponent,
+    // Case Status
+    CaseStatusComponent,
+    CreateCaseStatusDialogComponent,
+    EditCaseStatusDialogComponent,
+    GrudColumnComponent,
   ],
   imports: [
     CommonModule,
@@ -107,8 +135,11 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     SharedModule,
     NgxPaginationModule,
     GridModule,
+    ToolbarModule,
     // ng-zorro
     NzBreadCrumbModule,
+    NzIconModule,
+    NzButtonModule,
     NzInputModule,
     NzSelectModule
   ],
@@ -122,7 +153,9 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     ToolbarService,
     EditService,
     CountryServiceProxy,
-    NationalityServiceProxy
+    NationalityServiceProxy,
+    CaseStatusServiceProxy,
+    { provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }
   ],
   entryComponents: [
     // tenants
@@ -137,7 +170,20 @@ const icons: IconDefinition[] = [ AccountBookFill, AlertOutline, AlertFill ];
     ResetPasswordDialogComponent,
     // employees
     CreateEmployeeDialogComponent,
-    EditEmployeeDialogComponent
+    EditEmployeeDialogComponent,
+
+    // Country
+    EditCountryDialogComponent,
+    CreateCountryDialogComponent,
+
+    // Nationality
+    EditNationalityDialogComponent,
+    CreateNationalityDialogComponent,
+
+    // Case Status
+    CreateCaseStatusDialogComponent,
+    EditCaseStatusDialogComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {}

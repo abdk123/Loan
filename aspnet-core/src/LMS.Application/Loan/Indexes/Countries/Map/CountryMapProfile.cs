@@ -10,6 +10,7 @@ namespace LMS.Loan.Indexes.Countries.Map
         {
             CreateMap<Country, IndexDto>();
             CreateMap<Country, ReadIndexDto>();
+            CreateMap<Country, UpdateIndexDto>();
             CreateMap<IndexDto, Country>();
             CreateMap<CreateIndexDto, Country>();
             CreateMap<UpdateIndexDto, Country>();

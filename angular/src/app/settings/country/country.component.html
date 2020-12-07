@@ -15,43 +15,53 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-6">
-                            <!-- <h6><i class="fa fa-cog blue-icon"></i> {{ "Settings" | localize }} / {{ "Country" | localize }}</h6> -->
                             <nz-breadcrumb>
                                 <nz-breadcrumb-item>
                                     <i nz-icon nzType="setting"></i>
                                 </nz-breadcrumb-item>
                                 <nz-breadcrumb-item>
-                                    <a><i nz-icon nzType="flag"></i><span>{{l("Countries")}}</span></a>
+                                    {{l("Indexes")}}
                                 </nz-breadcrumb-item>
-                                
+                                <nz-breadcrumb-item>
+                                    <a><i nz-icon nzType="flag"></i><span>{{l("Countrys")}}</span></a>
+                                </nz-breadcrumb-item>
+
                             </nz-breadcrumb>
 
                         </div>
                         <div class="col-6 text-right">
-                            <!-- <button nz-button nzType="primary" [nzShape]="'circle'" [nzSize]="'large'"><i
-                                    class="fa fa-plus"></i></button> -->
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <!-- <button nz-button [nzSize]="'large'" nzType="primary">Primary</button> -->
-                    <ejs-grid 
-                    [dataSource]="countries" 
-                    [allowPaging]="true" 
-                    [allowSorting]="true"
-                    [allowFiltering]="true"
-                    [allowGrouping]="true"
-                    [pageSettings]="pageSettings"
-                    [editSettings]='editSettings' 
-                    [toolbar]='toolbar'
-                    [filterSettings]='filterOption'
-                    (actionBegin)='actionBegin($event)'
-                    
-                    >
+                    <ejs-grid id="CountryGrid" #countryGrid [dataSource]="countries" [allowPaging]="true"
+                        [allowSorting]="true" [allowFiltering]="true" [allowGrouping]="true"
+                        [pageSettings]="pageSettings" [filterSettings]='filterOption'>
+                        <!--toolbar-->
+                        <ng-template #toolbarTemplate>
+                            <grud-toolbar [createPermision]="'Pages.Countries.Create'" (onCreate)="showCreateDialog()"
+                                (onClearFilters)="clearFilters()" (onClearSorts)="clearSorts()"></grud-toolbar>
+                        </ng-template>
+                        <!--Columns-->
                         <e-columns>
-                            <e-column field="id" headerText="Id" isPrimaryKey="true" textAlign="center"></e-column>
+                            <e-column headerText="{{l('Commands')}}" textAlign='Center' width="150"
+                                *ngIf="permission.isGranted('Pages.Countries.Edit') || permission.isGranted('Pages.Countries.Delete')">
+                                <ng-template #template let-data>
+                                    <div class="e-unboundcelldiv" style="display: inline-block">
+                                        <button nz-button nzType="primary" nzShape="circle" nzGhost
+                                            *ngIf="permission.isGranted('Pages.Countries.Edit')" title="{{l('Edit')}}"
+                                            (click)="showEditDialog(data.id)"><i class="far fa-edit"></i></button>
+                                        <button nz-button nzType="default" nzShape="circle" nzDanger
+                                            title="{{l('Delete')}}" (click)="delete(data)"><i
+                                                *ngIf="permission.isGranted('Pages.Countries.Delete')"
+                                                class="far fa-trash-alt"></i></button>
+                                    </div>
+                                </ng-template>
+                            </e-column>
+                            <e-column field="id" headerText="Id" isPrimaryKey="true" [visible]="false"></e-column>
                             <e-column field="name" headerText="{{l('Name')}}" textAlign="center"></e-column>
-                            <e-column field="order" headerText='{{ l("Order") }}' editType= 'numericedit' textAlign="center"></e-column>
+                            <e-column field="order" headerText='{{ l("Order") }}' editType='numericedit'
+                                textAlign="center"></e-column>
                         </e-columns>
                     </ejs-grid>
                 </div>

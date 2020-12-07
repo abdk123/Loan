@@ -6,5 +6,6 @@ namespace LMS.Crud.Dto
     {
         public int count { get; set; }
         public IEnumerable result { get; set; }
+        public IEnumerable groupDs { get; set; }
     }
 }
