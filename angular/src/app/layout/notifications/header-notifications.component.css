@@ -1,0 +1,57 @@
+/* Add application styles & imports to this file! */
+#notifications{
+  top: 4px;
+  margin: 0 10px;
+}
+.notifications-item {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding: 6px 9px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+.notifications-item button {
+  margin: 2px 6px;
+}
+.notifications-item button i svg{
+  margin-top: -5px;
+}
+nz-badge {
+        left: -2px;
+    top: -14px;
+      }
+.notifications-item:hover {
+  background-color: #eee;
+}
+
+.notifications-item img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin-right: 9px;
+  border-radius: 25%;
+  margin-top: 2px;
+}
+
+.notifications-item .text h4 {
+  color: #777;
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+.notifications-item .text p {
+  color: #aaa;
+  font-size: 12px;
+}
+.main-header{
+  z-index: 999 !important;
+}
+.ant-drawer-content-wrapper{
+  width:400px !important;
+}
+.notification-background-white{
+  background-color:white
+}
+.notification-background-gray{
+  background-color:lightgray
+}

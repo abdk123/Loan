@@ -2,6 +2,7 @@
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using LMS.Authorization;
+using LMS.Notifications;
 
 namespace LMS
 {
@@ -13,6 +14,7 @@ namespace LMS
         public override void PreInitialize()
         {
             Configuration.Authorization.Providers.Add<LMSAuthorizationProvider>();
+            Configuration.Notifications.Providers.Add<AppNotificationProvider>();
         }
 
         public override void Initialize()

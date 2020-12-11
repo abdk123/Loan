@@ -1,0 +1,383 @@
+<!-- <a href="javascript:;" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon_not">
+    <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small" [ngClass]="{'m-badge--danger':unreadNotificationCount}"></span>
+    <span class="m-nav__link-icon">
+        <span class="m-nav__link-icon-wrapper">
+            <i class="flaticon-alarm" [attr.aria-label]="l('Notifications')"></i>
+        </span>
+    </span>
+</a>
+<div class="m-dropdown__wrapper">
+    <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+    <div class="m-dropdown__inner">
+        <div class="m-dropdown__header m--align-center" [ngStyle]="{ 'background': 'url(' + appRootUrl() + 'assets/img/notification_bg.jpg)', 'background-size': 'cover'}">
+            <span class="m-dropdown__header-title">
+                {{unreadNotificationCount}} {{"NewNotifications" | localize}}
+            </span>
+        </div>
+        <div class="m-dropdown__body">
+            <div class="m-dropdown__content">
+                <div class="row">
+                    <div class="text-left col-md-8">
+                        <a href="javascript:;" (click)="setAllNotificationsAsRead(); $event.preventDefault(); $event.stopPropagation();" *ngIf="unreadNotificationCount">{{"SetAllAsRead" | localize}}</a>
+                    </div>
+                    <div class="text-right col-md-4">
+                        
+                    </div>
+                </div>
+                <hr />
+                <div>
+                    <div class="m-list-timeline m-list-timeline--skin-light m-nav">
+                        <div class="m-list-timeline__items" [ngClass]="{'empty':!notifications.length}">
+                            <div *ngFor="let notification of notifications" class="m-list-timeline__item user-notification-item" (click)="gotoUrl(notification.url)" [ngClass]="{'user-notification-item-clickable': notification.url,'user-notification-item-unread': notification.isUnread}">
+                                <span class="m-list-timeline__badge m-list-timeline__badge--success"></span>
+                                <span class="m-list-timeline__icon {{notification.icon}}"></span>
+                                <span class="m-list-timeline__text">
+                                    {{notification.text}}
+                                </span>
+                                <span class="m-list-timeline__time">
+                                    {{notification.time | momentFromNow}}
+                                    <span *ngIf="notification.isUnread">
+                                        <a href="javascript:;" *ngIf="notification.state=='UNREAD'" class="m-link set-notification-as-read" (click)="setNotificationAsRead(notification); $event.preventDefault(); $event.stopPropagation();">{{"SetAsRead" | localize}}</a>
+                                    </span>
+                                </span>
+                            </div>
+                            <span *ngIf="!notifications.length" class="notification-empty-text">
+                                {{"ThereIsNoNotification" | localize}}
+                            </span>
+                        </div>
+                        <div *ngIf="notifications.length" class="m-nav__separator m-nav__separator--fit"></div>
+                        <div *ngIf="notifications.length" class="external notifications-footer">
+                            <div class="text-center"><a routerLink="notifications" class="m-dropdown__toggle">{{"SeeAllNotifications" | localize}}</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<button  nz-button nzType="primary" (click)="open()" id="notifications"  nzShape="circle">
+    <i nz-icon nzType="notification" nzTheme="outline"></i>
+<nz-badge *ngIf="unreadNotificationCount>0"
+nzStandalone
+[nzCount]="unreadNotificationCount"
+[nzStyle]="{ backgroundColor: '#fff', color: '#999', boxShadow: '0 0 0 1px #d9d9d9 inset' }"
+></nz-badge></button>
+<nz-drawer
+[nzClosable]="false"
+[nzWidth]="450"
+[nzVisible]="visible"
+nzPlacement="right"
+[nzTitle]="title"
+[nzFooter]="fotterTemplate"
+(nzOnClose)="close()"
+>
+<ng-container>
+  <div  *ngFor="let notification of notifications" class="notifications-item" [ngClass]="{'notification-background-gray':notification.isUnread,'notification-background-white':!notification.isUnread}" (click)="showModal(notification)">
+    <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+    alt="img"
+    />
+    <div class="text">
+    <h4>{{notification.title}}
+      <span>{{notification.time}}</span></h4>
+    <p>{{notification.text}}</p>
+    <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle" (click)="setNotificationAsRead(notification); $event.preventDefault(); $event.stopPropagation();">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+    </button>
+    </span>
+    <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+    </button>
+    </span>
+    <span nz-tooltip nzTooltipTitle="Move">
+    <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+    </button>
+    </span>
+    </div>
+    </div>
+    <span *ngIf="!notifications.length" class="notification-empty-text">
+      {{"ThereIsNoNotification" | localize}}
+    </span>
+</ng-container>
+</nz-drawer>
+<ng-template #fotterTemplate>
+  <div style="float:right">
+  <button nz-button style="margin: 3px 28px;" nzType="primary" (click)="setAllNotificationsAsRead(); $event.preventDefault(); $event.stopPropagation();" *ngIf="unreadNotificationCount">{{"SetAllAsRead" | localize}}</button>
+  </div>
+  </ng-template>
+  <nz-modal
+        [(nzVisible)]="isVisible"
+        [nzTitle]="currentNotification.title"
+        nzOkText="Ok"
+        (nzOnOk)="handleOk()"
+      >
+        <ng-container>
+          <p><span>{{currentNotification.time}}</span></p>
+          <p>{{currentNotification.text}}</p>
+        </ng-container>
+      </nz-modal>
+<!-- <nz-drawer
+[nzClosable]="false"
+[nzWidth]="450"
+[nzVisible]="visible"
+nzPlacement="right"
+[nzTitle]="title"
+[nzFooter]="footerTpl"
+(nzOnClose)="close()"
+>
+<ng-container *nzDrawerContent>
+<div class="notifications-item" style= "background: lightgray;">
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+  alt="img"
+/>
+<div class="text">
+  <h4>Samso aliao</h4>
+  <p>Samso Nagaro Like your home work</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+   <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Move">
+  <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item" style= "background: lightgray;">
+<img
+  src="https://www.pinclipart.com/picdir/middle/123-1239992_info-svg-png-icon-free-download-info-icon.png"
+  alt="img"
+/>
+<div class="text">
+  <h4>John Silvester</h4>
+  <p>+20 vista badge earned</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+  alt="img"
+/>
+<div class="text">
+  <h4>Samso aliao</h4>
+  <p>Samso Nagaro Like your home work</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Move">
+  <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item" style= "background: lightgray;">
+<img
+  src="https://www.pinclipart.com/picdir/middle/123-1239992_info-svg-png-icon-free-download-info-icon.png"
+  alt="img"
+/>
+<div class="text">
+  <h4>John Silvester</h4>
+  <p>+20 vista badge earned</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+  alt="img"
+/>
+<div class="text">
+  <h4>Samso aliao</h4>
+  <p>Samso Nagaro Like your home work</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Move">
+  <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://www.pinclipart.com/picdir/middle/123-1239992_info-svg-png-icon-free-download-info-icon.png"
+  alt="img"
+/>
+<div class="text">
+  <h4>John Silvester</h4>
+  <p>+20 vista badge earned</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item" style= "background: lightgray;">
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+  alt="img"
+/>
+<div class="text">
+  <h4>Samso aliao</h4>
+  <p>Samso Nagaro Like your home work</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Move">
+  <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://www.pinclipart.com/picdir/middle/123-1239992_info-svg-png-icon-free-download-info-icon.png"
+  alt="img"
+/>
+<div class="text">
+  <h4>John Silvester</h4>
+  <p>+20 vista badge earned</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+  alt="img"
+/>
+<div class="text">
+  <h4>Samso aliao</h4>
+  <p>Samso Nagaro Like your home work</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Move">
+  <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://www.pinclipart.com/picdir/middle/123-1239992_info-svg-png-icon-free-download-info-icon.png"
+  alt="img"
+/>
+<div class="text">
+  <h4>John Silvester</h4>
+  <p>+20 vista badge earned</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+
+<div class="notifications-item">
+<img
+  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3cSxpmapV_AC2yeQQgLdLgnRFzAV33rD-xw&usqp=CAU"
+  alt="img"
+/>
+<div class="text">
+  <h4>Samso aliao</h4>
+  <p>Samso Nagaro Like your home work</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Move">
+  <button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="arrow-right" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+<div class="notifications-item">
+<img
+  src="https://www.pinclipart.com/picdir/middle/123-1239992_info-svg-png-icon-free-download-info-icon.png"
+  alt="img"
+/>
+<div class="text">
+  <h4>John Silvester</h4>
+  <p>+20 vista badge earned</p>
+  <span nz-tooltip nzTooltipTitle="Mark as Read"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="read" nzTheme="outline"></i>
+  </button>
+  </span>
+  <span nz-tooltip nzTooltipTitle="Delete"><button nz-button nzType="primary" nzShape="circle">
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
+  </button>
+  </span>
+</div>
+</div>
+</ng-container>
+</nz-drawer>
+<ng-template #footerTpl>
+<div style="float:right">
+<button nz-button style="margin: 3px 28px;" nzType="primary" (click)="close()">Mark All As Read</button>
+</div>
+</ng-template> -->

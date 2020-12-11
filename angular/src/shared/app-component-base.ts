@@ -11,6 +11,7 @@ import {
 } from 'abp-ng2-module';
 
 import { AppSessionService } from '@shared/session/app-session.service';
+import { AppUrlService } from './nav/app-url.service';
 
 export abstract class AppComponentBase {
 
@@ -24,8 +25,7 @@ export abstract class AppComponentBase {
     message: MessageService;
     multiTenancy: AbpMultiTenancyService;
     appSession: AppSessionService;
-    elementRef: ElementRef;
-
+    appUrlService:AppUrlService;
     constructor(injector: Injector) {
         this.localization = injector.get(LocalizationService);
         this.permission = injector.get(PermissionCheckerService);
@@ -33,9 +33,9 @@ export abstract class AppComponentBase {
         this.notify = injector.get(NotifyService);
         this.setting = injector.get(SettingService);
         this.message = injector.get(MessageService);
+        this.appUrlService = injector.get(AppUrlService);
         this.multiTenancy = injector.get(AbpMultiTenancyService);
         this.appSession = injector.get(AppSessionService);
-        this.elementRef = injector.get(ElementRef);
     }
 
     l(key: string, ...args: any[]): string {
@@ -52,7 +52,9 @@ export abstract class AppComponentBase {
         args.unshift(localizedText);
         return abp.utils.formatString.apply(this, args);
     }
-
+    appRootUrl(): string {
+        return this.appUrlService.appRootUrl;
+    }
     isGranted(permissionName: string): boolean {
         return this.permission.isGranted(permissionName);
     }

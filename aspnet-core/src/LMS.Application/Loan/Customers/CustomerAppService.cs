@@ -10,14 +10,12 @@ using System.Threading.Tasks;
 
 namespace LMS.Loan.Customers
 {
-    public class CustomerAppService : AbpServiceBase, ICustomerAppService
+    public class CustomerAppService : LMSAppServiceBase, ICustomerAppService
     {
         private readonly IRepository<Customer> _repository;
-        private readonly UserManager _userManager;
         public CustomerAppService(IRepository<Customer> repository, UserManager userManager)
         {
             _repository = repository;
-            _userManager = userManager;
         }
         public async Task<IList<CustomerDto>> GetAllAsync()
         {
