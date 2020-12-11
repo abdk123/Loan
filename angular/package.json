@@ -24,6 +24,7 @@
     "@aspnet/signalr": "^1.1.4",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@syncfusion/ej2-angular-grids": "^18.3.50",
+    "@syncfusion/ej2-angular-navigations": "^18.3.51",
     "@syncfusion/ej2-material-theme": "^18.3.50",
     "abp-ng2-module": "^6.2.0",
     "abp-web-resources": "^5.3.0",

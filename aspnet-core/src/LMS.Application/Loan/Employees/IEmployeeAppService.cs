@@ -14,6 +14,7 @@ namespace LMS.Loan.Employees
         Task<ReadGrudDto> GetForGrid([FromBody] DataManagerRequest dm);
         Task<EmployeeDto> GetById(int id);
         Task<UpdateEmployeeDto> GetForEdit(int id);
+        Task<IList<EmployeeForDropdownDto>> GetForDropdown();
         Task<EmployeeDto> CreateAsync(CreateEmployeeDto input);
         Task<EmployeeDto> UpdateAsync(UpdateEmployeeDto input);
         Task DeleteAsync(int id);

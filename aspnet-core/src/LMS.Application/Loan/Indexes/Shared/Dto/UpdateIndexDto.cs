@@ -2,9 +2,9 @@
 
 namespace LMS.Loan.Indexes.Dto
 {
-    public class UpdateIndexDto
+    public class UpdateIndexDto : EntityDto
     {
-        public IndexDto Value { get; set; }
-        public string Action { get; set; }
+        public string Name { get; set; }
+        public int Order { get; set; }
     }
 }

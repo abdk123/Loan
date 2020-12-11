@@ -23,6 +23,9 @@ namespace LMS.Loan.Employees
         public long UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
-         
+        public int? ManagerId { get; set; }
+        [ForeignKey("ManagerId")]
+        public virtual Employee Manager { get; set; }
+
     }
 }

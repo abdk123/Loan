@@ -1,5 +1,7 @@
 ﻿using Abp;
 using Abp.Domain.Repositories;
+using Abp.UI;
+using LMS.Crud.Dto;
 using LMS.Loan.Indexes.Dto;
 using LMS.Loan.Indexes.Shared.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -23,10 +25,42 @@ namespace LMS.Loan.Indexes.Nationalities
             return ObjectMapper.Map<List<IndexDto>>(nationalities);
         }
 
-        public async Task<IList<ReadIndexDto>> GetAllForGridAsync()
+        [HttpPost]
+        public async Task<ReadGrudDto> GetForGrid([FromBody] DataManagerRequest dm)
         {
-            var nationalities = await _repository.GetAllListAsync();
-            return ObjectMapper.Map<List<ReadIndexDto>>(nationalities);
+            var data = await _repository.GetAllListAsync();
+            IEnumerable<ReadIndexDto> nationalities = ObjectMapper.Map<List<ReadIndexDto>>(data);
+
+            var operations = new DataOperations();
+            if (dm.Where != null && dm.Where.Count > 0)
+            {
+                nationalities = operations.PerformFiltering(nationalities, dm.Where, "and");
+            }
+
+            if (dm.Sorted != null && dm.Sorted.Count > 0)
+            {
+                nationalities = operations.PerformSorting(nationalities, dm.Sorted);
+            }
+
+            var count = nationalities.Count();
+
+            if (dm.Skip != 0)
+            {
+                nationalities = operations.PerformSkip(nationalities, dm.Skip);
+            }
+
+            if (dm.Take != 0)
+            {
+                nationalities = operations.PerformTake(nationalities, dm.Take);
+            }
+
+            return new ReadGrudDto() { result = nationalities, count = count };
+        }
+
+        public async Task<UpdateIndexDto> GetForEdit(int id)
+        {
+            var nationality = await _repository.GetAsync(id);
+            return ObjectMapper.Map<UpdateIndexDto>(nationality);
         }
 
         public async Task<IndexDto> GetById(int id)
@@ -37,7 +71,7 @@ namespace LMS.Loan.Indexes.Nationalities
 
         public async Task<IndexDto> CreateAsync(CreateIndexDto input)
         {
-            var nationality = ObjectMapper.Map<Nationality>(input.Value);
+            var nationality = ObjectMapper.Map<Nationality>(input);
 
             await _repository.InsertAndGetIdAsync(nationality);
 
@@ -45,8 +79,9 @@ namespace LMS.Loan.Indexes.Nationalities
         }
         public async Task<IndexDto> UpdateAsync(UpdateIndexDto input)
         {
-            var nationality = await _repository.GetAsync(input.Value.Id);
-            ObjectMapper.Map<IndexDto, Nationality>(input.Value, nationality);
+            CheckBeforeUpdate(input);
+            var nationality = await _repository.GetAsync(input.Id);
+            ObjectMapper.Map<UpdateIndexDto, Nationality>(input, nationality);
 
             var updatedNationality = await _repository.UpdateAsync(nationality);
 
@@ -58,6 +93,31 @@ namespace LMS.Loan.Indexes.Nationalities
             await _repository.DeleteAsync(nationality);
         }
 
-        
+        #region Helper methods
+        private void CheckBeforeCreate(CreateIndexDto input)
+        {
+            var validationResultMessage = string.Empty;
+
+            if (_repository.FirstOrDefault(x => x.Name == input.Name) != null)
+            {
+                validationResultMessage = $"{L(ValidationResultMessage.NameAleadyExist)} \n";
+            }
+
+            if (!string.IsNullOrEmpty(validationResultMessage))
+                throw new UserFriendlyException(validationResultMessage);
+        }
+        private void CheckBeforeUpdate(UpdateIndexDto input)
+        {
+            var validationResultMessage = string.Empty;
+
+            if (_repository.FirstOrDefault(x => x.Name == input.Name && x.Id != input.Id) != null)
+            {
+                validationResultMessage = $"{L(ValidationResultMessage.NameAleadyExist)} \n";
+            }
+
+            if (!string.IsNullOrEmpty(validationResultMessage))
+                throw new UserFriendlyException(validationResultMessage);
+        }
+        #endregion
     }
 }

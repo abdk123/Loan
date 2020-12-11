@@ -31,7 +31,7 @@ import { EqualValidator } from './directives/equal-validator.directive';
         AbpModalFooterComponent,
         LocalizePipe,
         BusyDirective,
-        EqualValidator
+        EqualValidator,
     ],
     exports: [
         AbpPaginationControlsComponent,

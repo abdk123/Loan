@@ -21,9 +21,10 @@ import { EditEmployeeDialogComponent } from './edit-employee/edit-employee-dialo
 export class EmployeeComponent extends AppComponentBase implements OnInit {
 
   // Grid
-  @ViewChild('employeeGrid') public grid: GridComponent
+  @ViewChild('employeeGrid') public grid: GridComponent;
   public employees: DataManager;
   public pageSettings: PageSettingsModel;
+  public pageSizes: number[] = [6, 20, 100];
   public toolbar: any;
   public filterOption: FilterSettingsModel = { type: 'Menu' };
   public employeeTypeData: any = [
@@ -42,11 +43,11 @@ export class EmployeeComponent extends AppComponentBase implements OnInit {
     this.baseUrl = baseUrl;
   }
   ngOnInit(): void {
-    this.pageSettings = {pageSize: 6};
+    this.pageSettings = {pageSize: 6, pageCount: 10, pageSizes: this.pageSizes};
     this.toolbar = [
       { text: 'Add', tooltipText: 'Add', prefixIcon: 'e-add ', id: 'Add' },
-      { text: this.l('Clear Filters'), tooltipText: this.l('Clear Filters'), prefixIcon: 'e-icon-filter', id: 'ClearFilters' },
-      { text: this.l('Clear Sorts'), tooltipText: this.l('Clear Sorts'), prefixIcon: 'e-icon-ascending', id: 'ClearSorts' },
+      { text: this.l('Clear Filters'), tooltipText: this.l('ClearFilters'), prefixIcon: 'e-icon-filter', id: 'ClearFilters' },
+      { text: this.l('Clear Sorts'), tooltipText: this.l('ClearSorts'), prefixIcon: 'e-icon-ascending', id: 'ClearSorts' },
     ];
     this.employees = new DataManager({
       url: this.baseUrl + '/api/services/app/Employee/GetForGrid',
@@ -118,10 +119,12 @@ delete(data): void {
 refresh() {
   this.grid.refresh();
 }
-clearFilter(){
+clearFilters() {
   this.grid.clearFiltering();
 }
-
+clearSorts() {
+  this.grid.clearSorting();
+}
 
 }
 

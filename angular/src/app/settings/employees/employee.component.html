@@ -20,9 +20,9 @@
                                     <i nz-icon nzType="setting"></i>
                                 </nz-breadcrumb-item>
                                 <nz-breadcrumb-item>
-                                    <a><i nz-icon nzType="flag"></i><span>{{l("Employees")}}</span></a>
+                                    <a><i nz-icon nzType="user"> </i><span>{{l("Employees")}}</span></a>
                                 </nz-breadcrumb-item>
-                                
+
                             </nz-breadcrumb>
 
                         </div>
@@ -33,34 +33,47 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <!-- <button nz-button [nzSize]="'large'" nzType="primary">Primary</button> -->
-                    <ejs-grid id="EmployeeGrid" #employeeGrid
-                    [dataSource]="employees" 
-                    [allowPaging]="true" 
-                    [allowSorting]="true"
-                    [allowFiltering]="true"
-                    [allowGrouping]="true"
-                    [allowReordering]="true"
-                    [pageSettings]="pageSettings"
-                    [toolbar]='toolbar'
-                    [filterSettings]='filterOption'
-                    (toolbarClick)="onClickToolbar($event)"
-                    >
+                    <ejs-grid id="EmployeeGrid" #employeeGrid [dataSource]="employees" [allowPaging]="true"
+                        [allowSorting]="true" [allowFiltering]="true" [allowGrouping]="true" [allowReordering]="true"
+                        [pageSettings]="pageSettings" [filterSettings]='filterOption'>
+                        <!--toolbar-->
+                        <ng-template #toolbarTemplate>
+                            <grud-toolbar
+                            [createPermision]="'Pages.Employees.Create'"
+                            (onCreate)="showCreateDialog()"
+                            (onClearFilters)="clearFilters()"
+                            (onClearSorts)="clearSorts()"
+                            ></grud-toolbar>
+                        </ng-template>
+                        <!--columns-->
                         <e-columns>
-                            <e-column headerText="{{l('Commands')}}" textAlign='Center'>
+                            <e-column 
+                            headerText="{{l('Commands')}}" 
+                            textAlign='Center'
+                            *ngIf="permission.isGranted('Pages.Employees.Edit') || permission.isGranted('Pages.Employees.Delete')"
+                            >
                                 <ng-template #template let-data>
                                     <div class="e-unboundcelldiv" style="display: inline-block">
-                                        <button type="button" title="{{l('Edit')}}" (click)="showEditDialog(data.id)" class="e-lib e-btn e-control e-flat e-icon-btn e-edit-delete e-editbutton"><span class="e-btn-icon e-edit e-icons"></span></button>
-                                        <button type="button" title="{{l('Delete')}}" (click)="delete(data)" class="e-lib e-btn e-control e-flat e-icon-btn e-edit-delete e-deletebutton"><span class="e-btn-icon e-delete e-icons"></span></button>
+                                        <button nz-button nzType="primary" nzShape="circle" nzGhost
+                                        *ngIf="permission.isGranted('Pages.Employees.Edit')"
+                                            title="{{l('Edit')}}" (click)="showEditDialog(data.id)"><i
+                                                class="far fa-edit"></i></button>
+                                        <button nz-button nzType="default" nzShape="circle" nzDanger
+                                        *ngIf="permission.isGranted('Pages.Employees.Delete')"
+                                            title="{{l('Edit')}}" (click)="delete(data)"><i
+                                                class="far fa-trash-alt"></i></button>
                                     </div>
                                 </ng-template>
                             </e-column>
                             <e-column field="id" headerText="Id" isPrimaryKey="true" [visible]="false"></e-column>
                             <e-column field="name" headerText="{{l('Name')}}" textAlign="center"></e-column>
                             <e-column field="homePhone" headerText="{{l('HomePhone')}}" textAlign="center"></e-column>
-                            <e-column field="mobilePhone" headerText="{{l('MobilePhone')}}" textAlign="center"></e-column>
-                            <e-column field="employeeType" headerText="{{l('EmployeeType')}}" textAlign="center"></e-column>
-                            <e-column field="emailAddress" headerText="{{l('EmailAddress')}}" textAlign="center"></e-column>
+                            <e-column field="mobilePhone" headerText="{{l('MobilePhone')}}" textAlign="center">
+                            </e-column>
+                            <e-column field="employeeType" headerText="{{l('EmployeeType')}}" textAlign="center">
+                            </e-column>
+                            <e-column field="emailAddress" headerText="{{l('EmailAddress')}}" textAlign="center">
+                            </e-column>
                             <e-column field="address" headerText="{{l('Address')}}" textAlign="center"></e-column>
                         </e-columns>
                     </ejs-grid>
